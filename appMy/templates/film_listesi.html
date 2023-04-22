@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-2">
+  <h1 class="mt-5 mb-5 pt-5 text-white text-uppercase fw-bolder">film Listesi</h1>
+  {% if filmler %}
+  <div class="row">
+        {% for film in filmler %}
+        <div class="col-3">    
+        <a style="text-decoration: none; color: white;" href="{% url 'film_detay' pk=film.pk %}">
+              
+            <img style="max-width: 250px;" src="{{ film.resim_yolu.url  }}" alt="{{ film.isim }}">
+            <h3 class="text-start mt-1 text-uppercase fw-bolder">{{ film.isim }}</h3>
+            </a>
+        </div>  
+        {% endfor %}
+      
+    {% else %}
+      <p class="mt-5 pt-5 text-white">film bulunamadı.</p>
+    {% endif %}
+  </div>
+</div>   
+{% endblock %}

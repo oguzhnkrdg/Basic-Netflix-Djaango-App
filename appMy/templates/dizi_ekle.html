@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+  <h2 style="padding-top: 100px; color:white;" class="mt-5 ps-5 text-light">Dizi Ekle</h2>
+  <form class="mt-5 ps-5" style="color:white; width: max-content;" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="isim">Dizi İsmi:</label>
+    <input type="text" id="isim" name="isim" required><br>
+
+    <label for="yil">Dizi Yılı:</label>
+    <input type="number" id="yil" name="yil" required><br>
+
+    <label for="tur">Dizi Türü:</label>
+    <input type="text" id="tur" name="tur" required><br>
+
+    <label for="resim_yolu">Dizi Resmi:</label>
+    <input type="file" id="resim_yolu" name="resim_yolu" required><br>
+
+    <input type="submit" value="Kaydet">
+  </form>
+{% endblock %}
